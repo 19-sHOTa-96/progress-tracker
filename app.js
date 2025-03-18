@@ -14,5 +14,5 @@ Ext.application({
     ],
 
     // The name of the initial view to create.
-    mainView: 'ProgressTracker.view.main.Main'
+    mainView: 'ProgressTracker.view.addedTasks.AddedTasksPage'
 });
