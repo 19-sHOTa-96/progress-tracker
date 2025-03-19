@@ -11,12 +11,10 @@ Ext.define('Momentum.view.Header', {
     padding: '30 120 30 120',
 
     requires: [
-        'ProgressTracker.view.addedTasks.AddedTasksController'
+        'ProgressTracker.view.addedTasks.NavbarController'
     ],
 
-    viewModel: { type: 'added-tasks' },
-
-    controller: 'added-tasks',
+    controller: 'navbar',
 
     items: [
         {

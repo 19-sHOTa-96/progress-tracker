@@ -1,4 +1,4 @@
-Ext.define('ProgressTracker.view.addedTasks.AddedTasksController', {
+Ext.define('ProgressTracker.view.addedTasks.NavbarController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.navbar',
 
