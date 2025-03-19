@@ -7,9 +7,7 @@ Ext.define('ProgressTracker.view.addedTasks.AddedTasksPage', {
         'ProgressTracker.view.addedTasks.AddedTasksModel'
     ],
 
-    viewModel: { type: 'added-tasks' },
-
-    controller: 'added-tasks',
+    controller: 'navbar',
 
     layout: 'vbox',
 
@@ -159,7 +157,17 @@ Ext.define('ProgressTracker.view.addedTasks.AddedTasksPage', {
                                                 }
                                             ]
                                         }
-                                    ]
+                                    ],
+                                    listeners: {
+                                        el: {
+                                            click: function () {
+                                                Ext.util.History.add('task');
+                                            }
+                                        }
+                                    },
+                                    style: {
+                                        cursor: 'pointer'
+                                    }
                                 },
                                 {
                                     xtype: 'container',
@@ -210,7 +218,17 @@ Ext.define('ProgressTracker.view.addedTasks.AddedTasksPage', {
                                                 }
                                             ]
                                         }
-                                    ]
+                                    ],
+                                    listeners: {
+                                        el: {
+                                            click: function () {
+                                                Ext.util.History.add('task');
+                                            }
+                                        }
+                                    },
+                                    style: {
+                                        cursor: 'pointer'
+                                    }
                                 }
                             ]
                         }

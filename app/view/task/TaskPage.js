@@ -44,7 +44,7 @@ Ext.define('ProgressTracker.view.addedTasks.TaskPage', {
                     width: '100%',
                     height: 100,
                     margin: '20 0 10 0',
-                    name: 'commentArea',
+                    name: 'commentArea'
                 },
                 {
                     xtype: 'button',

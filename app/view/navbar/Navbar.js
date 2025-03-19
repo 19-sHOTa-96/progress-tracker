@@ -10,6 +10,14 @@ Ext.define('Momentum.view.Header', {
     width: 1920,
     padding: '30 120 30 120',
 
+    requires: [
+        'ProgressTracker.view.addedTasks.AddedTasksController'
+    ],
+
+    viewModel: { type: 'added-tasks' },
+
+    controller: 'added-tasks',
+
     items: [
         {
             xtype: 'container',
@@ -19,7 +27,17 @@ Ext.define('Momentum.view.Header', {
             items: [
                 {
                     xtype: 'label',
-                    text: 'Momentum'
+                    text: 'Momentum',
+                    listeners: {
+                        el: {
+                            click: function () {
+                                Ext.util.History.add('addedTasks');
+                            }
+                        }
+                    },
+                    style: {
+                        cursor: 'pointer'
+                    }
                 },
                 {
                     xtype: 'image',
@@ -44,7 +62,8 @@ Ext.define('Momentum.view.Header', {
                     text: 'შექმენი ახალი დავალება',
                     icon: '',
                     shadow: false,
-                    margin: '0 0 0 40'
+                    margin: '0 0 0 40',
+                    handler: 'onTaskCreationButton'
                 }
             ]
         }
