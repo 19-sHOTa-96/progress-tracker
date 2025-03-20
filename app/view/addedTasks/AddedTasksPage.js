@@ -7,7 +7,9 @@ Ext.define('ProgressTracker.view.addedTasks.AddedTasksPage', {
         'ProgressTracker.view.addedTasks.AddedTasksModel'
     ],
 
-    controller: 'navbar',
+    viewModel: { type: 'added-tasks' },
+
+    controller: 'added-tasks',
 
     layout: 'vbox',
 
@@ -36,35 +38,51 @@ Ext.define('ProgressTracker.view.addedTasks.AddedTasksPage', {
                 {
                     xtype: 'combobox',
                     emptyText: 'დეპარტამენტი',
-                    store: ['Option 1', 'Option 2', 'Option 3'],
                     queryMode: 'local',
                     displayField: 'name',
-                    valueField: 'name',
+                    valueField: 'id',
                     editable: false,
                     allowBlank: false,
-                    margin: '0 45 0 0'
+                    margin: '0 45 0 0',
+                    bind: {
+                        store: '{departmentStore}'
+                    }
                 },
                 {
                     xtype: 'combobox',
                     emptyText: 'პრიორიტეტები',
-                    store: ['Option 1', 'Option 2', 'Option 3'],
                     queryMode: 'local',
                     displayField: 'name',
-                    valueField: 'name',
+                    valueField: 'id',
                     editable: false,
                     allowBlank: false,
-                    margin: '0 45 0 0'
+                    margin: '0 45 0 0',
+                    bind: {
+                        store: '{priorityStore}'
+                    }
                 },
                 {
                     xtype: 'combobox',
                     emptyText: 'თანამშრომელი',
-                    store: ['Option 1', 'Option 2', 'Option 3'],
                     queryMode: 'local',
                     displayField: 'name',
+                    displayTpl: new Ext.XTemplate(
+                        '<tpl for=".">',
+                        '{firstName} {lastName}',
+                        '</tpl>'
+                    ),
+                    listConfig: {
+                        getInnerTpl: function () {
+                            return '{firstName} {lastName}';
+                        }
+                    },
                     valueField: 'name',
                     editable: false,
                     allowBlank: false,
-                    margin: '0 45 0 0'
+                    margin: '0 45 0 0',
+                    bind: {
+                        store: '{employeeStore}'
+                    }
                 }
             ]
         },

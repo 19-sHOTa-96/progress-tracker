@@ -34,6 +34,8 @@ Ext.define('ProgressTracker.Application', {
         });
 
         Ext.util.History.add('addedTasks');
+
+        localStorage.setItem('accessToken', '9e746e20-6a5e-4c8f-aed9-b158a423f0e3');
     },
 
     onAppUpdate: function () {

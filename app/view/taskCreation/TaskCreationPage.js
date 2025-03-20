@@ -36,18 +36,20 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             fieldLabel: 'სათაური',
                             labelAlign: 'top',
                             name: 'title',
-                            allowBlank: false,
+                            allowBlank: false
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'დეპარტამენტი',
                             labelAlign: 'top',
                             name: 'department',
-                            store: ['Option 1', 'Option 2', 'Option 3'],
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
-                            editable: false
+                            editable: false,
+                            bind: {
+                                store: '{departmentStore}'
+                            }
                         }
                     ]
                 },
@@ -67,11 +69,13 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             fieldLabel: 'პასუხისმგებელი თანამშრომელი',
                             labelAlign: 'top',
                             name: 'responsiblePerson',
-                            store: ['Option 1', 'Option 2', 'Option 3'],
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
-                            editable: false
+                            editable: false,
+                            bind: {
+                                store: '{employeeStore}'
+                            }
                         }
                     ]
                 },
@@ -84,22 +88,26 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             fieldLabel: 'პრიორიტეტი',
                             labelAlign: 'top',
                             name: 'priority',
-                            store: ['Option 1', 'Option 2', 'Option 3'],
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
-                            editable: false
+                            editable: false,
+                            bind: {
+                                store: '{priorityStore}'
+                            }
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'სტატუსი',
                             labelAlign: 'top',
                             name: 'status',
-                            store: ['Option 1', 'Option 2', 'Option 3'],
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
-                            editable: false
+                            editable: false,
+                            bind: {
+                                store: '{statusStore}'
+                            }
                         },
                         {
                             xtype: 'datefield',

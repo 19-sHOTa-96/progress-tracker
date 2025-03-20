@@ -87,11 +87,15 @@ Ext.define('MyApp.view.AddEmployeePanel', {
                     xtype: 'combobox',
                     fieldLabel: 'დეპარტამენტი',
                     labelAlign: 'top',
+                    displayField: 'name',
+                    valueField: 'id',
                     name: 'department',
-                    store: ['HR', 'Engineering', 'Finance', 'Marketing'],
                     queryMode: 'local',
                     forceSelection: true,
-                    editable: false
+                    editable: false,
+                    bind: {
+                        store: '{departmentStore}'
+                    }
                 }
             ]
         },
