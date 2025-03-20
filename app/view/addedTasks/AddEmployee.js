@@ -1,5 +1,5 @@
 Ext.define('MyApp.view.AddEmployeePanel', {
-    extend: 'Ext.container.Container',
+    extend: 'Ext.form.Panel',
     xtype: 'add-employee',
 
     layout: {
@@ -49,7 +49,7 @@ Ext.define('MyApp.view.AddEmployeePanel', {
                     xtype: 'textfield',
                     fieldLabel: 'სახელი',
                     labelAlign: 'top',
-                    name: 'lastName',
+                    name: 'name',
                     flex: 1,
                     allowBlank: false
                 },
@@ -57,7 +57,7 @@ Ext.define('MyApp.view.AddEmployeePanel', {
                     xtype: 'textfield',
                     fieldLabel: 'გვარი',
                     labelAlign: 'top',
-                    name: 'firstName',
+                    name: 'surname',
                     flex: 1,
                     allowBlank: false,
                     margin: '0 0 0 45'
@@ -70,9 +70,14 @@ Ext.define('MyApp.view.AddEmployeePanel', {
             width: 813,
             items: [
                 {
-                    xtype: 'button',
-                    text: 'ავატარი',
-                    margin: '45 0 0 10'
+                    xtype: 'filefield',
+                    name: 'avatar',
+                    labelAlign: 'top',
+                    buttonText: 'ავატარი',
+                    margin: '45 0 0 10',
+                    listeners: {
+                        change: 'onAvatarFileField'
+                    }
                 }
             ]
         },
@@ -89,10 +94,11 @@ Ext.define('MyApp.view.AddEmployeePanel', {
                     labelAlign: 'top',
                     displayField: 'name',
                     valueField: 'id',
-                    name: 'department',
+                    name: 'department_id',
                     queryMode: 'local',
                     forceSelection: true,
                     editable: false,
+                    allowBlank: false,
                     bind: {
                         store: '{departmentStore}'
                     }
@@ -122,7 +128,9 @@ Ext.define('MyApp.view.AddEmployeePanel', {
                 {
                     xtype: 'button',
                     text: 'დაამატე თანამშრომელი',
-                    margin: '0 0 0 22'
+                    margin: '0 0 0 22',
+                    formBind: true,
+                    handler: 'onEmployeeCreationButton'
                 }
             ]
         }

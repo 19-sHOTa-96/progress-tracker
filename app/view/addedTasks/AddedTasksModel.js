@@ -2,6 +2,10 @@ Ext.define('ProgressTracker.view.addedTasks.AddedTasksModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.added-tasks',
 
+    data: {
+        avatar: null
+    },
+
     stores: {
         departmentStore: {
             storeId: 'departmentStore',
