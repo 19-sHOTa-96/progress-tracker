@@ -35,7 +35,7 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             xtype: 'textfield',
                             fieldLabel: 'სათაური',
                             labelAlign: 'top',
-                            name: 'title',
+                            name: 'name',
                             allowBlank: false
                         },
                         {
@@ -47,6 +47,7 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             displayField: 'name',
                             valueField: 'id',
                             editable: false,
+                            allowBlank: false,
                             bind: {
                                 store: '{departmentStore}'
                             }
@@ -62,17 +63,18 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             fieldLabel: 'აღწერა',
                             labelAlign: 'top',
                             name: 'description',
-                            allowBlank: true
+                            allowBlank: false
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'პასუხისმგებელი თანამშრომელი',
                             labelAlign: 'top',
-                            name: 'responsiblePerson',
+                            name: 'employee_id',
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
                             editable: false,
+                            allowBlank: false,
                             bind: {
                                 store: '{employeeStore}'
                             }
@@ -87,11 +89,12 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             xtype: 'combobox',
                             fieldLabel: 'პრიორიტეტი',
                             labelAlign: 'top',
-                            name: 'priority',
+                            name: 'priority_id',
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
                             editable: false,
+                            allowBlank: false,
                             bind: {
                                 store: '{priorityStore}'
                             }
@@ -100,11 +103,12 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             xtype: 'combobox',
                             fieldLabel: 'სტატუსი',
                             labelAlign: 'top',
-                            name: 'status',
+                            name: 'status_id',
                             queryMode: 'local',
                             displayField: 'name',
                             valueField: 'id',
                             editable: false,
+                            allowBlank: false,
                             bind: {
                                 store: '{statusStore}'
                             }
@@ -113,8 +117,9 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                             xtype: 'datefield',
                             fieldLabel: 'დედლაინი',
                             labelAlign: 'top',
-                            name: 'deadline',
+                            name: 'due_date',
                             format: 'd-MMM-yyyy',
+                            submitFormat: 'Y-m-d',
                             allowBlank: false,
                             editable: false
                         }
@@ -123,7 +128,8 @@ Ext.define('ProgressTracker.view.taskCreation.TaskCreationPage', {
                 {
                     xtype: 'button',
                     text: 'დავალების შექმნა',
-                    formBind: true
+                    formBind: true,
+                    handler: 'onTaskCreationButton'
                 }
             ]
         }
